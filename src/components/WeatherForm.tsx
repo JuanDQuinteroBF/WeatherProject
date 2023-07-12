@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
-const WeatherForm = () => {
+interface DataCity{
+    onChangeCity: (city: string | undefined)=>void
+}
+
+const WeatherForm = ({onChangeCity}: DataCity) => {
 
     const [city, setCity] = useState<string>();
 
@@ -12,9 +16,15 @@ const WeatherForm = () => {
         }
     }
 
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>){
+        e.preventDefault();
+
+        onChangeCity(city);        
+    }
+
     return (
-    <form >
-        <input type='text' onChange={handleChange} />
+    <form onSubmit={handleSubmit}>
+        <input className='p-2 rounded-md text-sm' type='text' placeholder='Buscar ubicacion' onChange={handleChange} />
     </form>
   )
 }
