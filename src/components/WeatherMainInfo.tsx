@@ -2,26 +2,26 @@ import styles from '../styles/weatherInfo.module.css'
 
 import { WeatherData } from '../utils/types';
 
-interface Data {
-  data: WeatherData;
+interface WidgetData {
+  weather: WeatherData;
 }
 
-const WeatherMainInfo = ({ weather }) => {
+const WeatherMainInfo = ( { weather } : WidgetData) => {
   return (
     <>
         <div className={styles.container}>
             <h2>{weather?.location.name}</h2>
             <h3 className="text-lg">{weather?.location.country}</h3>
-            <div className='flex flex-row gap-12 items-center'>
+            <div className={styles.weatherInfo}>
                 <img src={`http:${weather?.current.condition.icon}`} alt="" />
-                <div className='flex items-center flex-col'>
+                <div className={styles.temp}>
                   <span>{weather?.current.condition.text}</span>
-                  <h2> <b>{weather?.current.temp_c}°</b></h2>
+                  <b>{weather?.current.temp_c}°</b>
                 </div>
-
             </div>
-            <div className='p-2'>
-              <iframe title="mapa" src={`https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31730.807356561105!2d${weather?.location.lon}!3d${weather?.location.lat}65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1689194408226!5m2!1ses!2sco`} width="500" height="300" loading="lazy" ></iframe>
+            <div className='p-2 rounded-xl'>
+              <iframe src={`https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d159594.3949215045!2d${weather?.location.lon}!3d${weather?.location.lat}8!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1689273347635!5m2!1ses!2sco`} width="500" height="300"
+        style={{ border: 50 }} loading="lazy" ></iframe>
             </div>
         </div>
     </>

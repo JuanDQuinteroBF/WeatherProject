@@ -5,7 +5,8 @@ export interface WeatherData {
         temp_c: number,
         text: string
       }
-      temp_c: string
+      temp_c: string,
+      localtime: string
     }
     location: {
       name: string,
@@ -14,3 +15,8 @@ export interface WeatherData {
       lat: number
     }
   }
+
+
+export interface City {
+  city: string
+}
