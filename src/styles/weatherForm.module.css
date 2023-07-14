@@ -1,4 +1,4 @@
 
 input {
-    @apply text-black p-2 rounded-md text-sm shadow-lg
+    @apply p-2 rounded-md text-sm shadow-lg m-2 text-black placeholder:text-sm 
 }

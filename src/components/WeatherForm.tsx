@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { City } from "../../utils/types";
-import styles from "../../styles/weatherForm.module.css";
+import { City } from "../utils/types";
+import styles from "../styles/weatherForm.module.css";
 
 interface DataCity {
   onChangeCity: ({ city }: City) => void;
@@ -8,7 +8,6 @@ interface DataCity {
 
 const WeatherForm = ({ onChangeCity }: DataCity) => {
   const [city, setCity] = useState<string>("");
-  const ref = useRef();
 
   function handleChange(e: React.FormEvent<HTMLInputElement>) {
     const value = e.currentTarget?.value;
