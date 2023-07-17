@@ -1,10 +1,9 @@
 .container {
-    @apply flex justify-center bg-slate-300 items-center
+    @apply flex justify-center items-center pt-10
 }
 
 .weatherContainer {
-    @apply relative flex flex-col justify-center items-center p-4 shadow-xl text-white rounded-md leading-7;
+    @apply flex flex-col justify-center items-center p-4 shadow-xl text-white rounded-md leading-7;
     background-image: url(https://img.freepik.com/fotos-premium/fondo-cielo-azul-nubes_34070-936.jpg);
     background-size: cover;
-    width: 35%;
 }

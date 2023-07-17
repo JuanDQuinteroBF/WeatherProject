@@ -33,9 +33,9 @@ const WeatherForm = ({ onChangeCity }: DataCity) => {
   return (
     <form onSubmit={handleSubmit} className="pt-4">
       <input
-        className={styles.input}
+        className={styles.inputForm}
         type="text"
-        placeholder="Buscar ubicacion"
+        placeholder="Search location"
         onChange={handleChange}
       />
     </form>

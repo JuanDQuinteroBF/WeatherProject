@@ -1,20 +1,24 @@
-import { useState } from 'react'
-import WeatherApp from './components/WeatherApp'
+
 import '@fontsource/roboto/400.css';
-import Navbar from './components/Navbar';
+import Layout from './layouts/Layout';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
+import WeatherApp from './components/WeatherApp';
 
 
-function App() {
+const App = () => {
 
   return (
-    <div className='w-screen h-screen'>
-    <Navbar />
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/weather' element={<WeatherApp />} />
-    </Routes>
+    <div>
+      <h1>Hola mundo</h1>
+        <Layout>
+          <div className='relative flex'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/weather' element={<WeatherApp />} />
+            </Routes>
+          </div>
+        </Layout>
     </div>
   )
 }

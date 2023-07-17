@@ -15,19 +15,19 @@ const WeatherApp = () => {
     try {
       const response = await fetch(`${BASE_URL}&key=${APP_KEY}&q=${city}`);
       if (response.ok) {
-        setPlaceNotFound(false)
-        const res = await response.json() as WeatherData;
+        setPlaceNotFound(false);
+        const res = (await response.json()) as WeatherData;
         setWeather(res);
       } else {
-        setPlaceNotFound(true)
+        setPlaceNotFound(true);
       }
     } catch (error) {
-      console.log('Error', error)
+      console.log("Error", error);
     }
   }
 
   useEffect(() => {
-    fetchData().finally(() => console.log(''));
+    fetchData().finally(() => console.log(""));
   }, []);
 
   useEffect(() => {
@@ -35,25 +35,21 @@ const WeatherApp = () => {
   }, [weather]);
 
   const handleChangeCity = ({ city }: City) => {
-    fetchData(city).finally(() => console.log('Finally'));
+    fetchData(city).finally(() => console.log("Finally"));
   };
 
-
+  const isCityFound = () => {
+    if (placeNotFound) return <h2 className="p-10">No encontrado</h2>;
+    else if (weather) return <WeatherMainInfo weather={weather} />;
+    else return <Loading />;
+  };
 
   return (
     <>
-      <div className={styles.main}>
-        <div className={styles.container}>
-          <div className={styles.weatherContainer}>
-            <WeatherForm onChangeCity={handleChangeCity} />
-            {placeNotFound ? (
-              <h2 className="p-10">No encontrado</h2>
-              ) : weather ? (
-                <WeatherMainInfo weather={weather} />
-                ) : (
-                  <Loading />
-                  )}
-          </div>
+      <div className={styles.container}>
+        <div className={styles.weatherContainer}>
+          <WeatherForm onChangeCity={handleChangeCity} />
+          {isCityFound()}
         </div>
       </div>
     </>
