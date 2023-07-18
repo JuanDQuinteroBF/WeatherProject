@@ -1,0 +1,7 @@
+nav {
+    @apply fixed flex flex-1 w-full justify-between h-20 items-center px-10 bg-blue-500 text-white font-normal shadow-xl rounded-sm
+}
+
+.buttonSidebar {
+    @apply ml-60
+}

@@ -1,13 +1,14 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { RootState } from '../store';
 
 
   export const citySlice = createSlice({
     name: 'city',
     initialState: {
-        city: null,
+        city: 'london',
       },
     reducers: {
-      setCity: (state, action) => {
+      setCity: (state, action: PayloadAction<string>) => {
         state.city = action.payload;
     },
      
@@ -16,6 +17,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export const { setCity } = citySlice.actions;
 
-export const selectUser = (state: { nameCity: { name: any; }; }) => state.nameCity.name;
-
 export default citySlice.reducer;
+
+export const selectCity = (state: RootState) => state.city.city;

@@ -1,40 +1,39 @@
-import {  useNavigate } from 'react-router-dom'
+import {  Link, useNavigate, useParams } from 'react-router-dom'
 import styles from '../../styles/home.module.css'
 import { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { selectCity, setCity } from '../../features/slice';
 
-interface WeatherForm {
-    place?: string,
-}
 
-const HomeForm = ({place}: WeatherForm) => {
+
+const HomeForm = () => {
    
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const city = useSelector(selectCity)
     const focusInputRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        focusInputRef.current?.focus();
+        focusInputRef.current?.focus();        
       },[])
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        navigate("/weather") 
+        navigate(`/weather/${city}`)
     }
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
         const value = e.currentTarget?.value;
-        place = value;
-        console.log(place);
-        
+        dispatch(setCity(String(value)))
     }
 
-    console.log(place);
     
   return (
     <>
         <form onSubmit={handleSubmit} className={styles.homeForm}>
-            <input onChange={handleChange} ref={focusInputRef} type="text" name="" value={place} placeholder='Typing place'/>
-            <div>
-                <button className={styles.buttonForm} type='submit'>Search</button>
+            <input onChange={handleChange} ref={focusInputRef} type="text" name=""  placeholder='Typing place'/>
+            <div className={styles.buttonSearch}>
+                <Link to={`/weather/${city}`}>Search</Link>
             </div>
         </form>
     </>

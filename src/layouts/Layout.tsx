@@ -1,15 +1,21 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 interface LayoutProps {
   children: JSX.Element;
 }
 const Layout = ({ children }: LayoutProps) => {
+
+  const isOpen = useSelector((state: RootState)=> state.aside.open)
+
   return (
-    <main className="flex h-screen md:flex-row flex-col">
-      <Navbar />
-      <section className="flex h-full w-full justify-center items-center">
+    <main className="h-screen md:flex-row flex-col">
+        <Navbar />
+        {isOpen && <Sidebar />}
+      <section className="flex h-full justify-center items-center">
         {children}
       </section>
     </main>

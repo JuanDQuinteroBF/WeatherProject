@@ -10,7 +10,7 @@ const WeatherMainInfo = ({ weather }: WidgetData) => {
   return (
     <>
       <div className={styles.container}>
-        <h2>{weather?.location.name}</h2>
+        <h2>{weather.location.name}</h2>
         <h3 className="text-lg">{weather?.location.country}</h3>
         <div className={styles.weatherInfo}>
           <img src={`http:${weather?.current.condition.icon}`} alt="" />

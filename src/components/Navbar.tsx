@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import { FaBars } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store"
+import styles from '../styles/nav.module.css'
+
+import { setOpen } from "../features/asideSlice";
 
 const Navbar = () => {
   const [home, setHome] = useState(true);
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch()
+  const isOpen = useSelector((state: RootState)=> state.aside.open)
 
   const title = "Weather";
   document.title = title;
@@ -18,29 +25,34 @@ const Navbar = () => {
   }, [location]);
 
   const handleClick = () => {
-    setIsOpen(!isOpen);
+    dispatch(setOpen(Boolean(!isOpen)))
   };
 
   return (
     <>
-      <nav className="h-full">
-        <div className="absolute flex w-full justify-between items-center px-10 bg-blue-500 h-20 text-white font-normal">
+      <nav className={styles.nav}>
+          {isOpen ? <button  onClick={handleClick}>
+            <FaBars className={styles.buttonSidebar}/>
+          </button> :
           <button  onClick={handleClick}>
-            Sidebar
-          </button>
+            <FaBars style={{fontSize: '25px'}}/>
+          </button> }
+          
           <div>
             {home ? (
-              <Link to={"/weather"}>Weather</Link>
+              <div className="pl-8 border-l">
+
+                <Link to={"/weather/london"}>Weather</Link>
+              </div>
             ) : (
-              <Link to={"/"}>Home</Link>
+              <div className="pl-8 border-l">
+
+                <Link to={"/"}>Home</Link>
+              </div>
             )}
-
           </div>
-        </div>
-        {isOpen && <Sidebar />}
-
       </nav>
-
+      
     </>
   );
 };
