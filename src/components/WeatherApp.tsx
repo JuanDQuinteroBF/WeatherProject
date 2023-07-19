@@ -14,14 +14,18 @@ const WeatherApp = () => {
   const {weatherName} = useParams();
   const navigate = useNavigate()
 
+  const username = "eljoviano";
+
   async function fetchData(city = weatherName) {
     try {
+      console.log(city);
+      
       const response = await fetch(`${BASE_URL}&key=${APP_KEY}&q=${city as string}`);
       if (response.ok) {
         setPlaceNotFound(false);
         const res = (await response.json()) as WeatherData;
         setWeather(res);
-        //console.log(res);
+        console.log(res);
         
       } else {
         setPlaceNotFound(true);
@@ -33,10 +37,10 @@ const WeatherApp = () => {
 
   useEffect(() => {
     fetchData().finally(() => console.log(""));
+    //fetchDataa().finally(() => console.log(""));
   }, []);
 
   useEffect(() => {
-    
     document.title = `Weather | ${weather?.location.name ?? ""}`;
   }, [weather]);
 
@@ -45,9 +49,7 @@ const WeatherApp = () => {
     fetchData(city).finally(() => console.log("Finally"));
   };
   if(placeNotFound){
-    navigate('/weather/NotFound')
-    console.log(placeNotFound);
-    
+    navigate('/weather/NotFound')    
   }
 
   const isCityFound = () => {

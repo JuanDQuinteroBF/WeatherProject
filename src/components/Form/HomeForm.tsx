@@ -1,43 +1,43 @@
-import {  Link, useNavigate, useParams } from 'react-router-dom'
-import styles from '../../styles/home.module.css'
-import { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { selectCity, setCity } from '../../features/slice';
-
+import { Link, useNavigate } from "react-router-dom";
+import styles from "../../styles/home.module.css";
+import { useEffect, useRef, useState } from "react";
 
 
 const HomeForm = () => {
-   
-    const dispatch = useDispatch();
-    const city = useSelector(selectCity)
-    const focusInputRef = useRef<HTMLInputElement>(null);
-    const navigate = useNavigate();
+  const focusInputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  const [city, setCity] = useState("london");
 
-    useEffect(() => {
-        focusInputRef.current?.focus();        
-      },[])
+  useEffect(() => {
+    focusInputRef.current?.focus();    
+  }, []);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        navigate(`/weather/${city}`)
-    }
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const value = e.currentTarget?.value;
+    setCity(value);
+  };
+  
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();    
+    navigate(`/weather/${city}`);
+  };
 
-    const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-        const value = e.currentTarget?.value;
-        dispatch(setCity(String(value)))
-    }
-
-    
   return (
     <>
-        <form onSubmit={handleSubmit} className={styles.homeForm}>
-            <input onChange={handleChange} ref={focusInputRef} type="text" name=""  placeholder='Typing place'/>
-            <div className={styles.buttonSearch}>
-                <Link to={`/weather/${city}`}>Search</Link>
-            </div>
-        </form>
+      <form onSubmit={handleSubmit} className={styles.homeForm}>
+        <input
+          onChange={handleChange}
+          ref={focusInputRef}
+          type="text"
+          name=""
+          placeholder="Typing place"
+        />
+        <div className={styles.buttonSearch}>
+          <Link to={`/weather/${city}`}>Search</Link>
+        </div>
+      </form>
     </>
-  )
-}
+  );
+};
 
-export default HomeForm
+export default HomeForm;

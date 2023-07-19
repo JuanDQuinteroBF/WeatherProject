@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { City, WeatherData } from "../../utils/types";
+import { City  } from "../../utils/types";
 import styles from "../../styles/weatherForm.module.css";
 import { useNavigate } from "react-router-dom";
 
