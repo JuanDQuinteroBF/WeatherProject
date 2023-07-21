@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 interface DataCity {
   onChangeCity: ({ city }: City) => void;
-  weatherName: string | undefined
+  weatherName?: string 
 }
 
   const WeatherForm = ({ onChangeCity, weatherName }: DataCity) => {
@@ -34,7 +34,7 @@ interface DataCity {
 
   }
   useEffect(() => {
-    navigate(`/weather/${weatherName}`)
+    navigate(`/weather/${weatherName as string}`)
   }, [weatherName]);
 
   return (

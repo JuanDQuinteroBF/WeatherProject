@@ -6,3 +6,16 @@ body {
     height: 100vh;
     background-color: rgb(201, 219, 236);
 }
+
+.sidebar-closed {
+    /* Ancho del sidebar cerrado */
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar-open {
+    margin-left: 200px;
+    /* Ancho del sidebar abierto */
+    transition: margin-left 0.3s ease;
+    /* Transición para cambiar el margen */
+
+}

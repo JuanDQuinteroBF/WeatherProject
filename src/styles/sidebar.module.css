@@ -1,3 +1,29 @@
 .sidebarMain {
-    @apply fixed left-0 bg-blue-400 w-64 p-6 h-full
+    @apply fixed flex flex-col items-center left-0 bg-blue-500 w-64 p-6 h-full border-r-2 shadow-xl rounded-md text-white
+}
+
+.title {
+    @apply border-b-2 w-full text-center pb-6 text-lg
+}
+
+.list {
+    @apply flex pt-10 gap-4 flex-col
+}
+
+li:hover {
+    @apply underline -translate-y-1
+}
+
+.sidebarMainOpen {
+    @apply fixed flex flex-col items-center left-0 bg-blue-500 w-64 p-6 h-full border-r-2 shadow-xl rounded-md text-white;
+    /* Ancho del sidebar cerrado */
+    transform: translateX(0);
+    /* Ancho del sidebar abierto */
+    transition: transform 0.3s ease;
+}
+
+.sidebarMainClosed {
+    @apply fixed flex flex-col items-center left-0 bg-blue-500 w-64 p-6 h-full border-r-2 shadow-xl rounded-md text-white translate-x-20;
+    /* Ancho del sidebar cerrado */
+    transition: margin-left 0.3s ease;
 }

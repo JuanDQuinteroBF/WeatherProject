@@ -2,6 +2,18 @@ nav {
     @apply fixed flex flex-1 w-full justify-between h-20 items-center px-10 bg-blue-500 text-white font-normal shadow-xl rounded-sm
 }
 
+.navMid {
+    @apply border-r-2
+}
+
 .buttonSidebar {
     @apply ml-60
+}
+
+.buttonsNav {
+    @apply pl-8
+}
+
+a:hover {
+    @apply underline -translate-y-1
 }

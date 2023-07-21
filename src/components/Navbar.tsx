@@ -37,14 +37,14 @@ const Navbar = () => {
             <FaBars style={{fontSize: '25px'}}/>
           </button> }
           
-          <div>
+          <div className="border-l-2">
             {home ? (
-              <div className="pl-8 border-l">
+              <div className={styles.buttonsNav}>
 
                 <Link to={"/weather/london"}>Weather</Link>
               </div>
             ) : (
-              <div className="pl-8 border-l">
+              <div className={styles.buttonsNav}>
 
                 <Link to={"/"}>Home</Link>
               </div>

@@ -1,6 +1,6 @@
-import styles from "../styles/weatherInfo.module.css";
+import styles from "../../styles/weatherInfo.module.css";
 
-import { WeatherData } from "../utils/types";
+import { WeatherData } from "../../utils/types";
 
 interface WidgetData {
   weather: WeatherData;
