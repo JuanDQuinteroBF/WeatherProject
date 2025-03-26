@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux'
 import styles from '../styles/sidebar.module.css'
 import { RootState } from '../store'
+import { Div } from './StyledComponents/Div'
+import { List } from './StyledComponents/List'
 
 const Sidebar = () => {
   
@@ -13,12 +15,12 @@ const Sidebar = () => {
         <h2>Sidebar</h2>
       </div>
         <ul className={styles.list}>
-          <li>
+          <List>
               Home
-          </li>
-          <li>
+          </List>
+          <List>
             Weather
-          </li>
+          </List>
         </ul>
     </div>
   )

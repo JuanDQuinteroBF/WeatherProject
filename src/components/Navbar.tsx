@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars } from "react-icons/fa6";
+import { FaBars, FaBarsStaggered } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store"
 import styles from '../styles/nav.module.css'
 
 import { setOpen } from "../features/asideSlice";
+import { Button } from "./StyledComponents/Button";
 
 const Navbar = () => {
   const [home, setHome] = useState(true);
@@ -30,14 +31,15 @@ const Navbar = () => {
   return (
     <>
       <nav className={styles.nav}>
-          {isOpen ? <button  onClick={handleClick}>
-            <FaBars className={styles.buttonSidebar}/>
-          </button> :
-          <button  onClick={handleClick}>
+          {isOpen ? 
+          <Button  onClick={handleClick}>
+            <FaBarsStaggered className={styles.buttonSidebar}/>
+          </Button> :
+          <Button  onClick={handleClick}>
             <FaBars style={{fontSize: '25px'}}/>
-          </button> }
+          </Button> }
           
-          <div className="border-l-2">
+          <div className={styles.navMid}>
             {home ? (
               <div className={styles.buttonsNav}>
 

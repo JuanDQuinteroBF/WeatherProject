@@ -16,14 +16,11 @@ li:hover {
 
 .sidebarMainOpen {
     @apply fixed flex flex-col items-center left-0 bg-blue-500 w-64 p-6 h-full border-r-2 shadow-xl rounded-md text-white;
-    /* Ancho del sidebar cerrado */
     transform: translateX(0);
-    /* Ancho del sidebar abierto */
     transition: transform 0.3s ease;
 }
 
 .sidebarMainClosed {
     @apply fixed flex flex-col items-center left-0 bg-blue-500 w-64 p-6 h-full border-r-2 shadow-xl rounded-md text-white translate-x-20;
-    /* Ancho del sidebar cerrado */
     transition: margin-left 0.3s ease;
 }

@@ -3,11 +3,11 @@ nav {
 }
 
 .navMid {
-    @apply border-r-2
+    @apply border-l-2
 }
 
 .buttonSidebar {
-    @apply ml-60
+    @apply ml-60 text-lg
 }
 
 .buttonsNav {

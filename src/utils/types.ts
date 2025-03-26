@@ -16,6 +16,6 @@ export interface WeatherData {
   };
 }
 
-export interface City {
+export type City = {
   city: string;
 }

@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../../styles/home.module.css";
 import { useEffect, useRef, useState } from "react";
-
+import { Form, } from "../StyledComponents/Form";
+import { Input } from "../StyledComponents/Input";
 
 const HomeForm = () => {
   const focusInputRef = useRef<HTMLInputElement>(null);
@@ -24,18 +25,17 @@ const HomeForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className={styles.homeForm}>
-        <input
+      <Form onSubmit={handleSubmit} className={styles.homeForm}>
+        <Input
           onChange={handleChange}
           ref={focusInputRef}
           type="text"
-          name=""
           placeholder="Typing place"
         />
-        <div className={styles.buttonSearch}>
-          <Link to={`/weather/${city}`}>Search</Link>
+        <div>
+          <Link className={styles.buttonSearch} to={`/weather/${city}`}>Search</Link>
         </div>
-      </form>
+      </Form>
     </>
   );
 };

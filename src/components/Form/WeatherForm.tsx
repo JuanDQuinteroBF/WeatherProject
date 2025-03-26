@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { City  } from "../../utils/types";
 import styles from "../../styles/weatherForm.module.css";
 import { useNavigate } from "react-router-dom";
+import { Form } from "../StyledComponents/Form";
+import { Input } from "../StyledComponents/Input";
 
 interface DataCity {
   onChangeCity: ({ city }: City) => void;
@@ -38,14 +40,14 @@ interface DataCity {
   }, [weatherName]);
 
   return (
-    <form onSubmit={handleSubmit} className="pt-4">
-      <input
+    <Form onSubmit={handleSubmit} className="pt-4">
+      <Input
         className={styles.inputForm}
         type="text"
         placeholder="Search another location"
         onChange={handleChange}
       />
-    </form>
+    </Form>
   );
 };
 

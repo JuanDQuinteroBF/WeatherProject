@@ -1,4 +1,5 @@
 import styles from '../styles/loading.module.css'
+import { Div } from './StyledComponents/Div'
 
 const Loading = () => {
   return (

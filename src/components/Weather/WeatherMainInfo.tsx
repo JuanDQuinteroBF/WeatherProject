@@ -1,6 +1,9 @@
 import styles from "../../styles/weatherInfo.module.css";
 
 import { WeatherData } from "../../utils/types";
+import { Div } from "../StyledComponents/Div";
+import { Img } from "../StyledComponents/Img";
+import { Paragraph } from "../StyledComponents/Paragraph";
 
 interface WidgetData {
   weather: WeatherData;
@@ -13,9 +16,9 @@ const WeatherMainInfo = ({ weather }: WidgetData) => {
         <h2>{weather.location.name}</h2>
         <h3 className="text-lg">{weather?.location.country}</h3>
         <div className={styles.weatherInfo}>
-          <img src={`http:${weather?.current.condition.icon}`} alt="" />
+          <Img src={`http:${weather?.current.condition.icon}`} alt="" />
           <div className={styles.temp}>
-            <span>{weather?.current.condition.text}</span>
+            <Paragraph>{weather?.current.condition.text}</Paragraph>
             <b>{weather?.current.temp_c}°</b>
           </div>
         </div>

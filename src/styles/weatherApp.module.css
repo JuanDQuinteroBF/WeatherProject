@@ -7,3 +7,7 @@
     background-image: url(https://img.freepik.com/fotos-premium/fondo-cielo-azul-nubes_34070-936.jpg);
     background-size: cover;
 }
+
+.titleH2 {
+    @apply p-10 text-2xl text-black
+}

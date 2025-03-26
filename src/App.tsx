@@ -8,6 +8,21 @@ import WeatherApp from './components/Weather/WeatherApp';
 
 const App = () => {
 
+  // const Palindrome = (word: string) => {
+  //   let isPalindrome = false;
+  //   const newArray = word.split('').join()
+  //   console.log(newArray);
+  //   const otroArray = word.split('').reverse().join()
+  //   console.log(otroArray);
+    
+  //   if(otroArray === newArray){
+  //       isPalindrome = true;
+  //   }
+  //   return isPalindrome
+  // }
+
+  // console.log(Palindrome('adan'));
+  
 
   return (
     <div>
